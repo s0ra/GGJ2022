@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class PlayerRuntime : ActorRuntime
 {
+    public override void UpdateObject()
+    {
+        base.UpdateObject();
+        if (Input.GetMouseButtonUp(1))
+        {
+            Flip(!_walkRight);
+        }
+    }
+
     public override void FixedUpdateObject()
     {
         base.FixedUpdateObject();
-
-        BoxCollider2D forwardChecker = _walkRight ? _rightWallCheckCollider : _leftWallCheckCollider;
+        /*BoxCollider2D forwardChecker = _walkRight ? _rightWallCheckCollider : _leftWallCheckCollider;
         BoxCollider2D backwardChecker = _walkRight ? _leftWallCheckCollider : _rightWallCheckCollider;
         if (CheckAnyOverlapCollider(forwardChecker))
         {
@@ -20,7 +28,7 @@ public class PlayerRuntime : ActorRuntime
 
                 Flip(!_walkRight);
             }
-        }
+        }*/
 
         TryWalk();
     }
