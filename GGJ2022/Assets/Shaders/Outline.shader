@@ -26,7 +26,7 @@ Shader "Custom/CelEffectsDottedOutline"
 			// Write to Stencil buffer (so that outline pass can read)
 			Stencil
 			{
-				Ref 4
+				Ref 32
 				Comp always
 				Pass replace
 				ZFail keep
@@ -140,10 +140,10 @@ Shader "Custom/CelEffectsDottedOutline"
 			ZTest ON
 			Stencil
 			{
-				Ref 4
-				Comp notequal
-				Fail keep
-				Pass replace
+				Ref 31
+				Comp greater
+				Fail replace
+				Pass keep
 			}
 
 			CGPROGRAM
