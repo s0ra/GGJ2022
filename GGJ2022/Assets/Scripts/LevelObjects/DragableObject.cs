@@ -13,24 +13,14 @@ public class DragableObject : MonoBehaviour
 
     void OnMouseDown()
     {
-        screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-
         offset = gameObject.transform.position -
-         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-
+         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
     }
 
     void OnMouseDrag()
     {
-        Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-
-        // Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        // MousePos.z = 0f; //Optional
-        // Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+        Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
         transform.position = curPosition;
-        // transform.position = MousePos;
-
     }
 }
