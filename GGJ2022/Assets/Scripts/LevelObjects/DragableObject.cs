@@ -16,6 +16,7 @@ public class DragableObject : LevelObjectRuntime
 
     public override void Init()
     {
+        Debug.Log("init drageble");
         boxCollider2D.size = spriteRenderer.size;
         outlineSpriteRenderer.size = spriteRenderer.size;
     }

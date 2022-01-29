@@ -17,6 +17,10 @@ public class MoveBlackWhiteForEditor : MonoBehaviour
             return;
         }
         
+        if (Selection.activeObject == null)
+        {
+            return;
+        } 
         if (Selection.activeTransform.gameObject == null)
         {
             return;
