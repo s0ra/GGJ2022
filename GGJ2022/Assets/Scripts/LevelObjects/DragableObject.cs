@@ -39,6 +39,10 @@ public class DragableObject : LevelObjectRuntime
 
     private void OnMouseOver()
     {
+        if (boxCollider2D.bounds.Contains(ActorRuntime.Instance.transform.position))
+        {
+            return;
+        }
         outlineSpriteRenderer.gameObject.SetActive(true);
     }
 
