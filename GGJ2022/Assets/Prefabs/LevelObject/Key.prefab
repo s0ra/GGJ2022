@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5119c682aae443c89cd01a2fe3fafb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetUp: 2
-  offsetDown: -2
-  floatingSpeed: 1.75
+  offsetUp: 1.3
+  offsetDown: -1.3
+  floatingSpeed: 0.5
   hasReachedUp: 0
   hasReachedDown: 0
