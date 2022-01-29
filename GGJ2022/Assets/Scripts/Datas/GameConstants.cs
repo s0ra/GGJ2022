@@ -6,7 +6,7 @@ public static class GameConstants
 {
     public static class ResourcesPath
     {
-        public const string AudioClipPath = "Audios/";
+        public const string AudioClipPath = "AudioClips/";
         public const string VisualEffectPath = "Prefabs/VisualEffects/";
         public const string LevelsPath = "Prefabs/Levels/Level";
 

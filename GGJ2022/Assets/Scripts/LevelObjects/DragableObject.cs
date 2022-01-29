@@ -15,12 +15,14 @@ public class DragableObject : LevelObjectRuntime
 
 
     private bool _dragging;
+    private bool _hovering;
     
     public override void Init()
     {
         boxCollider2D.size = spriteRenderer.size;
         outlineSpriteRenderer.size = spriteRenderer.size;
         _dragging = false;
+        _hovering = false;
         outlineSpriteRenderer.gameObject.SetActive(false);
         outlineSpriteRenderer.gameObject.GetComponentInChildren<SpriteRenderer>().size =
             spriteRenderer.size;
@@ -45,11 +47,18 @@ public class DragableObject : LevelObjectRuntime
         {
             return;
         }
+
+        if (!_hovering)
+        {
+            AudioManager.Instance.PlayAudioClip(AudioId.hover);
+        }
+        _hovering = true;
         outlineSpriteRenderer.gameObject.SetActive(true);
     }
 
     private void OnMouseExit()
     {
+        _hovering = false;
         outlineSpriteRenderer.gameObject.SetActive(false);
     }
 
