@@ -16,7 +16,7 @@ public class PlayerMoveState : GameplayState
     {
         base.UpdateState();
         LevelManager.Instance.UpdateManager();
-
+        UIManager.Instance.SetRetryButtonActive(true);
     }
 
     public override void FixedUpdateState()
@@ -29,6 +29,6 @@ public class PlayerMoveState : GameplayState
     public override void OnExit()
     {
         base.OnExit();
-
+        UIManager.Instance.SetRetryButtonActive(false);
     }
 }
