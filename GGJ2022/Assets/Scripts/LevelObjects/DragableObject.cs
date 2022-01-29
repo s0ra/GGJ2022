@@ -9,6 +9,7 @@ public class DragableObject : MonoBehaviour
 
     [SerializeField] private BoxCollider2D boxCollider2D;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer outlineSpriteRenderer;
     private Vector3 screenPoint;
     private Vector3 offset;
 
@@ -16,6 +17,7 @@ public class DragableObject : MonoBehaviour
     private void Start()
     {
         boxCollider2D.size = spriteRenderer.size;
+        outlineSpriteRenderer.size = spriteRenderer.size;
     }
 
 

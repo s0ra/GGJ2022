@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxCollider2D: {fileID: 4594008083745762139}
   spriteRenderer: {fileID: 9101780159464452407}
+  outlineSpriteRenderer: {fileID: 9198497312471489422}
 --- !u!61 &4594008083745762139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -232,7 +233,7 @@ PrefabInstance:
     - target: {fileID: 7889634317986467758, guid: 32c7610126c5abd47889a261cb031f29,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7889634317986467760, guid: 32c7610126c5abd47889a261cb031f29,
         type: 3}
@@ -327,7 +328,7 @@ PrefabInstance:
     - target: {fileID: 7889634317986467758, guid: 32c7610126c5abd47889a261cb031f29,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7889634317986467760, guid: 32c7610126c5abd47889a261cb031f29,
         type: 3}
@@ -487,7 +488,7 @@ PrefabInstance:
     - target: {fileID: 6752381680137609247, guid: c4fd339e4f1de034abbedf9762103fde,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4fd339e4f1de034abbedf9762103fde, type: 3}
@@ -572,7 +573,7 @@ PrefabInstance:
     - target: {fileID: 6752381680137609247, guid: c4fd339e4f1de034abbedf9762103fde,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4fd339e4f1de034abbedf9762103fde, type: 3}
