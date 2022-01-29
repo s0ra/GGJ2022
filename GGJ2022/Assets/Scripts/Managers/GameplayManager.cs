@@ -17,6 +17,9 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
+    public GameStateId GameStateId => _currentGameplayState.GameStateId;
+    private GameplayState _currentGameplayState;
+
     public void InitManager()
     {
 
@@ -25,6 +28,26 @@ public class GameplayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_currentGameplayState != null)
+        {
+            _currentGameplayState.UpdateState();
+        }
     }
+
+    public void TryChangeGameState(GameplayStateData gameplayStateData)
+    {
+        if (_currentGameplayState != null)
+        {
+            _currentGameplayState.OnExit();
+        }
+        _currentGameplayState = gameplayStateData.ToGameplayState();
+        if (_currentGameplayState != null)
+        {
+            _currentGameplayState.OnEnter(gameplayStateData);
+        }
+    }
+
+
+
+
 }

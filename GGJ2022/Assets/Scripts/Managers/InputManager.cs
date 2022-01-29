@@ -5,14 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(MeshCollider))]
 public class InputManager : MonoBehaviour
 {
-    private static GameSceneManager _instance;
-    public static GameSceneManager Instance
+    private static InputManager _instance;
+    public static InputManager Instance
     {
         get
         {
             if (_instance == null)
             {
-                _instance = FindObjectOfType<GameSceneManager>();
+                _instance = FindObjectOfType<InputManager>();
             }
             return _instance;
         }
