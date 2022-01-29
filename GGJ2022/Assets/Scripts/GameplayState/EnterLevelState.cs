@@ -10,9 +10,13 @@ public class EnterLevelState : GameplayState
     {
         base.OnEnter(gameplayStateData);
         LevelManager.Instance.SpawnLevel(gameplayStateData.LevelId);
-        CameraManager.Instance.SetCameraSize(LevelManager.Instance.CurrentLevelRuntime.CameraSize);
+        CameraManager.Instance.SetCameraSize(
+            LevelManager.Instance.CurrentLevelRuntime.CameraSize);
         PixelColliderManager.Instance.FitOrthoSizeToRendererCamera();
-        ApplicationManager.Instance.StartCoroutine(RegenerateCollider);
+
+        UIManager.Instance.LoadingScreen.ScaleUpFrom(
+            PlayerRuntime.Instance.transform.position, RegenerateCollider);
+        //ApplicationManager.Instance.StartCoroutine(RegenerateCollider);
     }
 
     private void RegenerateCollider()

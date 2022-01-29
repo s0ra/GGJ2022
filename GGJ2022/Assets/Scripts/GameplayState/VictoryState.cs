@@ -9,6 +9,21 @@ public class VictoryState : GameplayState
     public override void OnEnter(GameplayStateData gameplayStateData)
     {
         base.OnEnter(gameplayStateData);
+        UIManager.Instance.LoadingScreen.ScaleDownTo(
+            PlayerRuntime.Instance.transform.position, ChangeGameState);
+
+    }
+
+    private void ChangeGameState()
+    {
+        int nextLevelId = Mathf.Min(LevelManager.Instance.LevelId + 1
+            ,GameConstants.Gameplay.MAX_LEVEL_COUNT);
+        GameplayManager.Instance.TryChangeGameState(
+            new GameplayStateData()
+            {
+                LevelId = nextLevelId,
+                GameStateId = GameStateId.EnterLevel
+            });
     }
 
     public override void UpdateState()

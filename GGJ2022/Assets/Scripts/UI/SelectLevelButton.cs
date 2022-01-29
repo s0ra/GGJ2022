@@ -9,14 +9,28 @@ public class SelectLevelButton : MonoBehaviour
     private int _levelId;
     public void Init(int levelId)
     {
-        Debug.Log($"SelectLevelButton Init {levelId}");
+        //Debug.Log($"SelectLevelButton Init {levelId}");
         _button.onClick.RemoveAllListeners();
         _button.onClick.AddListener(OnClick);
         _text.text = levelId.ToString();
         _levelId = levelId;
+        _button.interactable = true;
     }
 
     private void OnClick()
+    {
+        _button.interactable = false;
+
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        Vector2 worldPosition = CameraManager.Instance.
+            MainCamera.
+                ScreenToWorldPoint(transform.position);
+        UIManager.Instance.LoadingScreen.ScaleDownTo(
+        //transform.position, ChangeState);
+            worldPosition, ChangeState);
+    }
+
+    private void ChangeState()
     {
         GameplayManager.Instance.TryChangeGameState(
         new GameplayStateData()
