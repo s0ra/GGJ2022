@@ -11,6 +11,9 @@ public class DragableObject : LevelObjectRuntime
     [SerializeField] private SpriteRenderer outlineSpriteRenderer;
     private Vector3 screenPoint;
     private Vector3 offset;
+    [SerializeField] private bool disableDrag = false;
+
+    
 
 
     public override void Init()
@@ -39,6 +42,11 @@ public class DragableObject : LevelObjectRuntime
 
     void OnMouseDown()
     {
+        if (disableDrag)
+        {
+            Debug.Log("disable drag " + gameObject.name);
+            return;
+        }
         if (CheckPlayerInside())
         {
             return;
@@ -51,6 +59,11 @@ public class DragableObject : LevelObjectRuntime
 
     void OnMouseDrag()
     {
+        if (disableDrag)
+        {
+            return;
+        }
+
         if (CheckPlayerInside())
         {
             return;
@@ -64,6 +77,11 @@ public class DragableObject : LevelObjectRuntime
 
     void OnMouseUp()
     {
+        if (disableDrag)
+        {
+            return;
+        }
+
         if (CheckPlayerInside())
         {
             return;
