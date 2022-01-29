@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spike : MonoBehaviour
+public class Spike : LevelObjectRuntime
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             GameplayManager.Instance.TryChangeGameState(
                 new GameplayStateData(GameStateId.Lose));

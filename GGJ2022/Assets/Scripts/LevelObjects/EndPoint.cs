@@ -7,7 +7,7 @@ public class EndPoint : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             GameplayManager.Instance.TryChangeGameState(new GameplayStateData(GameStateId.Victory));
         }

@@ -14,7 +14,7 @@ public class DragableObject : LevelObjectRuntime
     private Vector3 offset;
 
 
-    private void Start()
+    public override void Init()
     {
         boxCollider2D.size = spriteRenderer.size;
         outlineSpriteRenderer.size = spriteRenderer.size;
