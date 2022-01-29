@@ -17,8 +17,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public LevelSelectPanel LevelSelectPanel;
+
     public void InitManager()
     {
-
+        LevelSelectPanel.Init();
     }
+
+
 }
