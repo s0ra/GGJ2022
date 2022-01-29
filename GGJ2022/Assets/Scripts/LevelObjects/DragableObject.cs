@@ -21,6 +21,7 @@ public class DragableObject : LevelObjectRuntime
         boxCollider2D.size = spriteRenderer.size;
         outlineSpriteRenderer.size = spriteRenderer.size;
         _dragging = false;
+        outlineSpriteRenderer.gameObject.SetActive(false);
     }
 
     private bool CheckPlayerInside()
@@ -35,6 +36,16 @@ public class DragableObject : LevelObjectRuntime
         }
     }
 
+
+    private void OnMouseOver()
+    {
+        outlineSpriteRenderer.gameObject.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        outlineSpriteRenderer.gameObject.SetActive(false);
+    }
 
     void OnMouseDown()
     {
