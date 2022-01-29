@@ -25,16 +25,7 @@ public class MovingPlaform : LevelObjectRuntime
 
         MoveObject();
     }
-
-    private void Start()
-    {
-        startPosition = transform.position;
-    }
-
-    private void FixedUpdate()
-    {
-        MoveObject();
-    }
+    
 
     void MoveObject()
     {
