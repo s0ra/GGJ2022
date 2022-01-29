@@ -12,6 +12,7 @@ public enum GameStateId
     Lose
 }
 
+[System.Serializable]
 public class GameplayState
 {
     public virtual GameStateId GameStateId => GameStateId.None;

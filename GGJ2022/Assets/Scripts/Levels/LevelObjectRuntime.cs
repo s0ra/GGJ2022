@@ -6,6 +6,11 @@ public class LevelObjectRuntime : MonoBehaviour
 {
     public virtual void Init()
     {
+        Debug.Log($"{gameObject.name} LevelObjectRuntime Init");
+    }
+
+    public virtual void OnEnterGameplayState(GameStateId gameStateId)
+    {
 
     }
 

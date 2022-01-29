@@ -29,6 +29,7 @@ public class PixelPerfectCollider2D : MonoBehaviour
     public Camera orthoCamera;
     public void Regenerate()
     {
+        Debug.Log($"PixelPerfectCollider2D Regenerate");
         //Test that all references are not null.
         if (GetComponent<PolygonCollider2D>() == null)
         {
@@ -56,6 +57,8 @@ public class PixelPerfectCollider2D : MonoBehaviour
         {
             polygoncollider.SetPath(p, paths[p].ToArray());
         }
+        Debug.Log($"polygoncollider SetPath");
+
     }
 
     //this struct will store data about sections of collider.
@@ -120,7 +123,7 @@ public class PixelPerfectCollider2D : MonoBehaviour
         	$",width = {width}" +
             $",height = {height}, x*{distance / width} y*{distance / height}");*/
         Vector2 offset = new Vector2(-distance / 2f, -distance2 / 2f);
-        Debug.Log($"CalculatePivot, offset = {offset}");
+        //Debug.Log($"CalculatePivot, offset = {offset}");
         for (int p = 0; p < original.Count; p++)
         {
             for (int o = 0; o < original[p].Count; o++)

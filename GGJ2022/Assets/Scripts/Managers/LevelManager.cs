@@ -26,6 +26,14 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    public void OnEnterGameState(GameStateId gameStateId)
+    {
+        if (_currentLevelRuntime != null)
+        {
+            _currentLevelRuntime.OnEnterGameplayState(gameStateId);
+        }
+    }
+
     public void SpawnLevel(int level)
     {
         DestroyLevel();

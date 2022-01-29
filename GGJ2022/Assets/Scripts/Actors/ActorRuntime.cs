@@ -24,7 +24,23 @@ public partial class ActorRuntime : LevelObjectRuntime
     {
         base.Init();
         _actorAnimator.Init(this);
+        _rigidbody2D.bodyType = RigidbodyType2D.Static;
     }
+
+    public override void OnEnterGameplayState(GameStateId gameStateId)
+    {
+        base.OnEnterGameplayState(gameStateId);
+        switch (gameStateId)
+        {
+            case GameStateId.PlayerMove:
+                _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+                break;
+            case GameStateId.PauseOnDrag:
+                _rigidbody2D.bodyType = RigidbodyType2D.Static;
+                break;
+        }
+    }
+
 
     public override void UpdateObject()
     {
@@ -37,6 +53,7 @@ public partial class ActorRuntime : LevelObjectRuntime
         base.FixedUpdateObject();
         _onGround = CheckAnyOverlapCollider(_groundCheckCollider);
         Debug.Log($"_onGround:{_onGround}");
+        _groundCheckCollider.gameObject.SetActive(_onGround != null);
         BoxCollider2D forwardChecker = _walkRight ? _rightWallCheckCollider : _leftWallCheckCollider;
         BoxCollider2D backwardChecker = _walkRight ? _leftWallCheckCollider : _rightWallCheckCollider;
         if (CheckAnyOverlapCollider(forwardChecker))

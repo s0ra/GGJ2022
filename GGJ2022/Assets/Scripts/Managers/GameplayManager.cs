@@ -34,8 +34,18 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (_currentGameplayState != null)
+        {
+            _currentGameplayState.FixedUpdateState();
+        }
+    }
+
     public void TryChangeGameState(GameplayStateData gameplayStateData)
     {
+        Debug.Log($"TryChangeGameState {gameplayStateData.GameStateId}");
+
         if (_currentGameplayState != null)
         {
             _currentGameplayState.OnExit();
@@ -44,6 +54,7 @@ public class GameplayManager : MonoBehaviour
         if (_currentGameplayState != null)
         {
             _currentGameplayState.OnEnter(gameplayStateData);
+            Debug.Log($"_currentGameplayState OnEnter {gameplayStateData.GameStateId}");
         }
     }
 

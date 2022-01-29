@@ -15,6 +15,15 @@ public class LevelRuntime : MonoBehaviour
         {
             levelObject.Init();
         }
+        Debug.Log($"LevelRuntime Init");
+    }
+
+    public void OnEnterGameplayState(GameStateId gameStateId)
+    {
+        foreach (var levelObject in _levelObjectRuntimes)
+        {
+            levelObject.OnEnterGameplayState(gameStateId);
+        }
     }
 
     public void UpdateLevel()

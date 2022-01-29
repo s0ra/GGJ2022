@@ -9,6 +9,7 @@ public class PlayerMoveState : GameplayState
     public override void OnEnter(GameplayStateData gameplayStateData)
     {
         base.OnEnter(gameplayStateData);
+        LevelManager.Instance.OnEnterGameState(gameplayStateData.GameStateId);
     }
 
     public override void UpdateState()

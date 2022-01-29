@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class ApplicationManager : MonoBehaviour
 {
     private static ApplicationManager _instance;
@@ -31,5 +31,16 @@ public class ApplicationManager : MonoBehaviour
         CameraManager.Instance.Init();
     }
 
+    public void StartCoroutine(float seconds, Action onComplete )
+    {
+        StartCoroutine(StartCorou(seconds, onComplete));
+    }
+
+    private IEnumerator StartCorou(float seconds, Action onComplete)
+    {
+        yield return new WaitForSeconds(seconds);
+        onComplete?.Invoke();
+        yield return null;
+    }
 
 }

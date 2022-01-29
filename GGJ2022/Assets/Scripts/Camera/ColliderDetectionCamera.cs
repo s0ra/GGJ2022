@@ -15,7 +15,10 @@ public class ColliderDetectionCamera : MonoBehaviour
     public void FitOrthoSizeToCamera(Camera mainCamera)
     {
         float orthoSize = mainCamera.orthographicSize;
-        float targetSize = orthoSize * Screen.width * 1f / Screen.height;
+        //float targetSize = orthoSize * Screen.width * 1f / Screen.height;
+        float targetSize = orthoSize * mainCamera.aspect;
+        //Debug.Log($"FitOrthoSizeToCamera mainCamera:{orthoSize} * {Screen.width}/{Screen.height} =targetSize:{targetSize}");
+        Debug.Log($"FitOrthoSizeToCamera mainCamera:{orthoSize} * {mainCamera.aspect} =targetSize:{targetSize}");
         SetOrthoSize(targetSize);
     }
 
