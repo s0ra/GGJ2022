@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class DragableObject : MonoBehaviour
+public class DragableObject : LevelObjectRuntime
 {
 
     [SerializeField] private BoxCollider2D boxCollider2D;

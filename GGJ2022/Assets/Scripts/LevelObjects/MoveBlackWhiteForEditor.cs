@@ -10,6 +10,11 @@ public class MoveBlackWhiteForEditor : MonoBehaviour
     private void Update()
     {
 #if UNITY_EDITOR
+        if (Selection.activeTransform.gameObject == null)
+        {
+            return;
+        }
+
         if (Selection.activeTransform.gameObject == gameObject)
         {
             Vector2 snappedPos = new Vector2((float)Math.Round(transform.position.x * 2, MidpointRounding.AwayFromZero) / 2,
