@@ -10,17 +10,16 @@ public class KeyItem : LevelObjectRuntime
     [SerializeField] bool hasReachedUp = false, hasReachedDown = false;
 
     
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("OnTriggerEnter");
         if (other.CompareTag("Player"))
         {
-            Debug.Log("plaeyr tri");
             _player = other.GetComponent<ActorRuntime>();
             if (!_player.HasKey)
             {
                 Debug.Log("player get key");
                 _player.HasKey = true;
+                _player.KeyItem = this;
             }
         }
     }

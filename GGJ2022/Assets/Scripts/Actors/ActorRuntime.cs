@@ -17,6 +17,7 @@ public partial class ActorRuntime : LevelObjectRuntime
 
     [SerializeField] protected bool _walkRight;
     public bool HasKey;
+    public KeyItem KeyItem;
 
     protected bool _onGround;
 

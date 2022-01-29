@@ -7,14 +7,18 @@ public class Door : LevelObjectRuntime
 {
     private ActorRuntime _player;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            _player = other.GetComponent<ActorRuntime>();
+            Debug.Log("player get door");
+            _player = other.gameObject.GetComponent<ActorRuntime>();
             if (_player.HasKey)
             {
+                Debug.Log("player has key");
                 _player.HasKey = false;
+                _player.KeyItem.gameObject.SetActive(false);
+                _player.KeyItem = null;
                 gameObject.SetActive(false);
             }
         }
