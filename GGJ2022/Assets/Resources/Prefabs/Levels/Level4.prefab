@@ -53,8 +53,8 @@ MonoBehaviour:
   - {fileID: 4160332843824599562}
   - {fileID: 512712066933610716}
   - {fileID: 4739770185546908501}
-  - {fileID: 1799233801497149966}
-  _cameraSize: 32
+  - {fileID: 3085964539169590023}
+  _cameraSize: 16
 --- !u!1001 &467612050747439440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163,11 +163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4594008083745762136, guid: dd83b2ede727f1a46a6e52eb30523ed5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 4594008083745762136, guid: dd83b2ede727f1a46a6e52eb30523ed5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4594008083745762136, guid: dd83b2ede727f1a46a6e52eb30523ed5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -236,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4594008083745762136, guid: 5f3534b4c09937244a5274d6d859912d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.5
+      value: -28
       objectReference: {fileID: 0}
     - target: {fileID: 4594008083745762136, guid: 5f3534b4c09937244a5274d6d859912d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -358,14 +358,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9148812153313018849, guid: 55535c18c684342c395ac51a35fa544c, type: 3}
   m_PrefabInstance: {fileID: 7354155756295471598}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1799233801497149966 stripped
+--- !u!114 &3085964539169590023 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9148812153313018848, guid: 55535c18c684342c395ac51a35fa544c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5538505977885952745, guid: 55535c18c684342c395ac51a35fa544c, type: 3}
   m_PrefabInstance: {fileID: 7354155756295471598}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66dfb5de565524c29b709f36b226f256, type: 3}
+  m_Script: {fileID: 11500000, guid: d6ca79a4a839143fd99c1c8fb3995941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -50,8 +50,8 @@ MonoBehaviour:
   _levelObjectRuntimes:
   - {fileID: 3718427222939327967}
   - {fileID: 3718427222299721472}
-  - {fileID: 8651818364149538981}
-  _cameraSize: 32
+  - {fileID: 5348810774434245036}
+  _cameraSize: 16
 --- !u!1001 &497211084443902789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114,15 +114,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9148812153313018849, guid: 55535c18c684342c395ac51a35fa544c, type: 3}
   m_PrefabInstance: {fileID: 497211084443902789}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8651818364149538981 stripped
+--- !u!114 &5348810774434245036 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9148812153313018848, guid: 55535c18c684342c395ac51a35fa544c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5538505977885952745, guid: 55535c18c684342c395ac51a35fa544c, type: 3}
   m_PrefabInstance: {fileID: 497211084443902789}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66dfb5de565524c29b709f36b226f256, type: 3}
+  m_Script: {fileID: 11500000, guid: d6ca79a4a839143fd99c1c8fb3995941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &890503094224376922
