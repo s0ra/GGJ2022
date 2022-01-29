@@ -4,16 +4,20 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 using UnityEditor;
-
+using UnityEngine.UI;
 
 public class LoadingScreen : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _canvasGrouop;
     [SerializeField] private RectTransform _holeParent;
+    [SerializeField] private Text LevelIdText;
+
     private int maxSize = 2500;
     public void Init()
     {
         gameObject.SetActive(false);
+        LevelIdText.gameObject.SetActive(false);
+
     }
 
     public void ScaleDownToScreen(Vector2 screenPosition, Action onComplete)
@@ -23,8 +27,8 @@ public class LoadingScreen : MonoBehaviour
         gameObject.SetActive(true);
 
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(_holeParent.DOSizeDelta(200* Vector2.one, 0.75f));
-        sequence.AppendInterval(1f);
+        sequence.Append(_holeParent.DOSizeDelta(200* Vector2.one, 0.5f));
+        sequence.AppendInterval(0.5f);
         sequence.Append(_holeParent.DOSizeDelta(Vector2.zero, 0.5f));
         sequence.OnComplete(() => {
             onComplete?.Invoke();
@@ -42,9 +46,9 @@ public class LoadingScreen : MonoBehaviour
         gameObject.SetActive(true);
 
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(_holeParent.DOSizeDelta(200 * Vector2.one, 1f));
-        sequence.AppendInterval(1f);
-        sequence.Append(_holeParent.DOSizeDelta(Vector2.zero,1));
+        sequence.Append(_holeParent.DOSizeDelta(200 * Vector2.one, 0.5f));
+        sequence.AppendInterval(0.5f);
+        sequence.Append(_holeParent.DOSizeDelta(Vector2.zero, 0.5f));
         sequence.OnComplete(()=> {
             onComplete?.Invoke();
           });
@@ -57,15 +61,15 @@ public class LoadingScreen : MonoBehaviour
         gameObject.SetActive(true);
 
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(_holeParent.DOSizeDelta(200 * Vector2.one, 0.75f));
-        sequence.AppendInterval(1f);
-        sequence.Append(_holeParent.DOSizeDelta(Vector2.zero, 1));
+        sequence.Append(_holeParent.DOSizeDelta(200 * Vector2.one, 0.5f));
+        sequence.AppendInterval(0.5f);
+        sequence.Append(_holeParent.DOSizeDelta(Vector2.zero, 0.5f));
         sequence.OnComplete(() => {
             onComplete?.Invoke();
         });
     }
 
-    public void ScaleUpFrom(Vector2 worldPosition, Action onComplete)
+    public void ScaleUpFrom(Vector2 worldPosition,int levelId, Action onComplete)
     {
         Vector2 screenPosition = CameraManager.Instance.
             MainCamera.
@@ -74,14 +78,22 @@ public class LoadingScreen : MonoBehaviour
         _holeParent.transform.position = screenPosition;
 
         _holeParent.sizeDelta = Vector2.zero;
-
+        gameObject.SetActive(true);
+        LevelIdText.color = new Color(1,1,1,0);
+        LevelIdText.gameObject.SetActive(true);
+        LevelIdText.text = levelId.ToString();
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(_holeParent.DOSizeDelta(
-            4000 * Vector2.one, 1).SetEase(Ease.InCirc));
+        sequence.Append(LevelIdText.DOFade(1, 0.5f));
+        sequence.AppendInterval(0.5f);
+        sequence.Append(LevelIdText.DOFade(0,0.5f));
+        sequence.Join(_holeParent.DOSizeDelta(
+            4000 * Vector2.one, 0.5f).SetEase(Ease.InCirc));
 
         sequence.OnComplete(() => {
             onComplete?.Invoke();
             gameObject.SetActive(false);
+            LevelIdText.gameObject.SetActive(false);
+
         });
     }
 
@@ -95,7 +107,7 @@ public class LoadingScreenEditor : Editor
         if (GUILayout.Button("ScaleUp"))
         {
             LoadingScreen screen = (LoadingScreen)target;
-            screen.ScaleUpFrom(Vector3.zero, null);
+            screen.ScaleUpFrom(Vector3.zero,0, null);
         }
 
         if (GUILayout.Button("ScaleDown"))
