@@ -16,6 +16,7 @@ public partial class ActorRuntime : LevelObjectRuntime
     [SerializeField] private BoxCollider2D _groundCheckCollider;
 
     [SerializeField] protected bool _walkRight;
+    public bool HasKey;
 
     protected bool _onGround;
 
@@ -45,14 +46,24 @@ public partial class ActorRuntime : LevelObjectRuntime
     {
         base.FixedUpdateObject();
         _onGround = CheckAnyOverlapCollider(_groundCheckCollider);
+        Debug.Log($"_onGround:{_onGround}");
         BoxCollider2D forwardChecker = _walkRight ? _rightWallCheckCollider : _leftWallCheckCollider;
         BoxCollider2D backwardChecker = _walkRight ? _leftWallCheckCollider : _rightWallCheckCollider;
         if (CheckAnyOverlapCollider(forwardChecker))
         {
+            Debug.Log($"forwardChecker:{true}");
+
             if (!CheckAnyOverlapCollider(backwardChecker))
             {
+                Debug.Log($"backwardChecker:{false}");
+
                 Flip(!_walkRight);
             }
+        }
+        else
+        {
+            Debug.Log($"forwardChecker:{false}");
+
         }
         if (_onGround)
         {
@@ -62,7 +73,9 @@ public partial class ActorRuntime : LevelObjectRuntime
 
     protected virtual void Move()
     {
-        float xSpeed = _walkRight?1:-1 * _actorData.MoveSpeed;
+        float xSpeed = (_walkRight?1:-1) * _actorData.MoveSpeed;
+        Debug.Log($"Move xSpeed{xSpeed} MoveSpeed{_actorData.MoveSpeed}");
+
         float ySpeed = _rigidbody2D.velocity.y;
         _rigidbody2D.velocity = new Vector2(xSpeed, ySpeed);
     }
