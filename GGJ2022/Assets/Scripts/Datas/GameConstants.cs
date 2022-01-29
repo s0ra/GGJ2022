@@ -8,6 +8,7 @@ public static class GameConstants
     {
         public const string AudioClipPath = "Audios/";
         public const string VisualEffectPath = "Prefabs/VisualEffects/";
+        public const string LevelsPath = "Prefabs/Levels/Level";
 
     }
 }
