@@ -16,6 +16,7 @@ public partial class ActorRuntime : LevelObjectRuntime
     [SerializeField] protected BoxCollider2D _groundCheckCollider;
 
     [SerializeField] protected bool _walkRight;
+    public bool WalkRight => _walkRight;
     public bool HasKey;
     public KeyItem KeyItem;
 
