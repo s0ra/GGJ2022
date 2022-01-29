@@ -21,6 +21,9 @@ public class LevelManager : MonoBehaviour
 
     public LevelRuntime CurrentLevelRuntime => _currentLevelRuntime;
 
+    private int _levelId;
+    public int LevelId => _levelId;
+
     public void InitManager()
     {
 
@@ -37,6 +40,7 @@ public class LevelManager : MonoBehaviour
     public void SpawnLevel(int level)
     {
         DestroyLevel();
+        _levelId = level;
         GameObject levelPrefab = Resources.Load<GameObject>(GameConstants.ResourcesPath.LevelsPath + level);
         if (levelPrefab == null)
         {

@@ -9,6 +9,12 @@ public class LoseState : GameplayState
     public override void OnEnter(GameplayStateData gameplayStateData)
     {
         base.OnEnter(gameplayStateData);
+        GameplayManager.Instance.TryChangeGameState(
+            new GameplayStateData()
+            {
+                LevelId = LevelManager.Instance.LevelId,
+                GameStateId = GameStateId.EnterLevel
+            });
     }
 
     public override void UpdateState()

@@ -17,8 +17,10 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    public GameStateId GameStateId => _currentGameplayState.GameStateId;
     [SerializeField] private GameplayState _currentGameplayState;
+
+    [SerializeField] private GameStateId _gameStateId;
+    public GameStateId GameStateId => _gameStateId;
 
     public void InitManager()
     {
@@ -53,8 +55,13 @@ public class GameplayManager : MonoBehaviour
         _currentGameplayState = gameplayStateData.ToGameplayState();
         if (_currentGameplayState != null)
         {
+            _gameStateId = _currentGameplayState.GameStateId;
             _currentGameplayState.OnEnter(gameplayStateData);
             Debug.Log($"_currentGameplayState OnEnter {gameplayStateData.GameStateId}");
+        }
+        else
+        {
+            _gameStateId = GameStateId.None;
         }
     }
 
