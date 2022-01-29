@@ -13,6 +13,8 @@ public class DragableObject : LevelObjectRuntime
     private Vector3 offset;
     [SerializeField] private bool disableDrag = false;
 
+    [SerializeField] private ParticleSystem draggingParticle;
+    private ParticleSystem _currentParticle;
 
     private bool _dragging;
     private bool _hovering;
@@ -26,6 +28,10 @@ public class DragableObject : LevelObjectRuntime
         outlineSpriteRenderer.gameObject.SetActive(false);
         outlineSpriteRenderer.gameObject.GetComponentInChildren<SpriteRenderer>().size =
             spriteRenderer.size + Vector2.one * 0.5f;
+
+        // Set up dragging particle
+        ParticleSystem.ShapeModule s = draggingParticle.shape;
+        s.spriteRenderer = outlineSpriteRenderer;
     }
 
     private bool CheckPlayerInside()
@@ -81,6 +87,9 @@ public class DragableObject : LevelObjectRuntime
             (new GameplayStateData(GameStateId.PauseOnDrag));
         offset = gameObject.transform.position -
                  Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+
+        // Show dragging particle
+        _currentParticle = Instantiate(draggingParticle, transform.position, transform.rotation);
     }
 
     void OnMouseDrag()
@@ -94,16 +103,20 @@ public class DragableObject : LevelObjectRuntime
             return;
         }
 
-
         Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
         transform.position = curPosition;
+        _currentParticle.transform.position = curPosition;
         Snapping();
     }
 
     void OnMouseUp()
     {
         _dragging = false;
+        if (_currentParticle != null)
+        {
+            DestroyImmediate(_currentParticle.gameObject);
+        }
         if (disableDrag)
         {
             return;
