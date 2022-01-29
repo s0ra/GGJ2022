@@ -19,6 +19,8 @@ public partial class ActorRuntime : LevelObjectRuntime
     public bool HasKey;
     public KeyItem KeyItem;
 
+    public ParticleSystem landingEffect;
+
     protected bool _onGround;
 
     public override void Init()
@@ -52,8 +54,14 @@ public partial class ActorRuntime : LevelObjectRuntime
     public override void FixedUpdateObject()
     {
         base.FixedUpdateObject();
+        bool prev = _onGround;
         _onGround = CheckAnyOverlapCollider(_groundCheckCollider);
         //Debug.Log($"_onGround:{_onGround}");
+        if (prev == false && prev != _onGround)
+        {
+            Debug.Log("actor is landed from falling");
+            Instantiate(landingEffect, transform.position, transform.rotation);
+        }
         _groundCheckCollider.gameObject.SetActive(_onGround);
     }
 
