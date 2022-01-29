@@ -31,6 +31,7 @@ public class CameraManager : MonoBehaviour
 
     public void SetCameraSize(float size)
     {
+        Debug.Log($"SetCameraSize {size}");
         _mainCamera.orthographicSize = size;
     }
 

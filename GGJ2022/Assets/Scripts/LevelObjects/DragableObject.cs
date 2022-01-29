@@ -28,10 +28,6 @@ public class DragableObject : LevelObjectRuntime
         outlineSpriteRenderer.gameObject.SetActive(false);
         outlineSpriteRenderer.gameObject.GetComponentInChildren<SpriteRenderer>().size =
             spriteRenderer.size;
-
-        // Set up dragging particle
-        ParticleSystem.ShapeModule s = draggingParticle.shape;
-        s.spriteRenderer = outlineSpriteRenderer;
     }
 
     private bool CheckPlayerInside()
