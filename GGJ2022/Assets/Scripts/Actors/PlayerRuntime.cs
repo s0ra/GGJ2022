@@ -34,11 +34,12 @@ public class PlayerRuntime : ActorRuntime
             _targetPosition =
                 CameraManager.Instance.MainCamera.
                     ScreenToWorldPoint(Input.mousePosition);
+            _targetPosition.z = 0f;
             _meetTargetPosition = false;
 
             VisualEffectManager.Instance.SpawnVisualEffectAndDestroy(
                 new VisualEffectSpawnData(VisualEffectId.MouseWave, _targetPosition
-                    , Vector3.one));
+                    , Vector3.one * 1.3f));
 
             //Flip(!_walkRight);
         }
