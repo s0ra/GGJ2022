@@ -8,7 +8,11 @@ Shader "Unlit/OverlapWhite"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags 
+        { 
+            "RenderType"="Transparent"
+            "Queue" = "Transparent"
+        }
         LOD 100
 
         Pass
