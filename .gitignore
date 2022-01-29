@@ -37,3 +37,5 @@ sysinfo.txt
 *.unitypackage
 *.log
 GGJ2022/UserSettings/EditorUserSettings.asset
+GGJ2022/ProjectSettings/SceneTemplateSettings.json
+GGJ2022/UserSettings/EditorUserSettings.asset
