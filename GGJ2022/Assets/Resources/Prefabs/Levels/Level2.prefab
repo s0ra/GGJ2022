@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 5348810774434245036}
   - {fileID: 905758888884635003}
   - {fileID: 2959940794811694086}
-  _cameraSize: 32
+  _cameraSize: 16
 --- !u!1001 &497211084443902789
 PrefabInstance:
   m_ObjectHideFlags: 0
