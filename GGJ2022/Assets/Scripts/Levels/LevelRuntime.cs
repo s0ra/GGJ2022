@@ -15,7 +15,7 @@ public class LevelRuntime : MonoBehaviour
         {
             levelObject.Init();
         }
-        Debug.Log($"LevelRuntime Init");
+        //Debug.Log($"LevelRuntime Init");
     }
 
     public void OnEnterGameplayState(GameStateId gameStateId)

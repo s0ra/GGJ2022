@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2777321118456068784}
   - component: {fileID: 2777321118456068786}
   - component: {fileID: 2777321118456068785}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColliderDetectionCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 2777321119430296969}
   - component: {fileID: 2777321119430296970}
   - component: {fileID: 2777321119430296964}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColliderGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
