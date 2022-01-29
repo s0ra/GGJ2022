@@ -12,8 +12,10 @@ public class KeyItem : LevelObjectRuntime
     
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("OnTriggerEnter");
         if (other.CompareTag("Player"))
         {
+            Debug.Log("plaeyr tri");
             _player = other.GetComponent<ActorRuntime>();
             if (!_player.HasKey)
             {

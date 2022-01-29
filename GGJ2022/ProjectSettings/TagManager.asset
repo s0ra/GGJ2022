@@ -43,6 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BlackWhite
+    uniqueID: 3704427807
+    locked: 0
+  - name: Front
+    uniqueID: 4228000793
+    locked: 0
   - name: Player
     uniqueID: 1505454109
     locked: 0
