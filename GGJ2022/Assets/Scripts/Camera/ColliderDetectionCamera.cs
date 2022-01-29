@@ -12,7 +12,7 @@ public class ColliderDetectionCamera : MonoBehaviour
         FitOrthoSizeToCamera(mainCamera);
     }
 
-    private void FitOrthoSizeToCamera(Camera mainCamera)
+    public void FitOrthoSizeToCamera(Camera mainCamera)
     {
         float orthoSize = mainCamera.orthographicSize;
         float targetSize = orthoSize * Screen.width * 1f / Screen.height;

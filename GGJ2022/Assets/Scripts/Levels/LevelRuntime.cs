@@ -5,7 +5,8 @@ using UnityEngine;
 public class LevelRuntime : MonoBehaviour
 {
     [SerializeField] private List<LevelObjectRuntime> _levelObjectRuntimes;
-
+    [SerializeField] private float _cameraSize;
+    public float CameraSize => _cameraSize;
     public void Init()
     {
         foreach (var levelObject in _levelObjectRuntimes)

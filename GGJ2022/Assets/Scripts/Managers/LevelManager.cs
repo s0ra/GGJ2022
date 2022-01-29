@@ -19,6 +19,8 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private LevelRuntime _currentLevelRuntime;
 
+    public LevelRuntime CurrentLevelRuntime => _currentLevelRuntime;
+
     public void InitManager()
     {
 

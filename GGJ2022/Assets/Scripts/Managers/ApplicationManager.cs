@@ -28,6 +28,7 @@ public class ApplicationManager : MonoBehaviour
         UIManager.Instance.InitManager();
         InputManager.Instance.InitManager();
         PixelColliderManager.Instance.InitManager();
+        CameraManager.Instance.Init();
     }
 
 
