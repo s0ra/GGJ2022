@@ -35,8 +35,8 @@ public class MoveBlackWhiteForEditor : MonoBehaviour
 
     private void Snapping()
     {
-        Vector2 snappedPos = new Vector2((float)Math.Round(transform.position.x * 2, MidpointRounding.AwayFromZero) / 2,
-            (float)Math.Round(transform.position.y * 2, MidpointRounding.AwayFromZero) / 2);
+        Vector3 snappedPos = new Vector3((float)Math.Round(transform.position.x * 2, MidpointRounding.AwayFromZero) / 2,
+            (float)Math.Round(transform.position.y * 2, MidpointRounding.AwayFromZero) / 2, transform.position.z);
         
         transform.position = snappedPos;
         Vector2 snappedScale = new Vector2((float)Math.Round(transform.localScale.x),

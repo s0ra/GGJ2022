@@ -21,26 +21,13 @@ public class DragableObject : LevelObjectRuntime
         boxCollider2D.size = spriteRenderer.size;
         outlineSpriteRenderer.size = spriteRenderer.size;
         _dragging = false;
+        outlineSpriteRenderer.gameObject.SetActive(false);
+        outlineSpriteRenderer.gameObject.GetComponentInChildren<SpriteRenderer>().size =
+            spriteRenderer.size;
     }
 
     private bool CheckPlayerInside()
     {
-        // Collider2D overlapBox = Physics2D.OverlapBox(
-        //     boxCollider2D.transform.position,
-        //     boxCollider2D.size, 0, LayerMask.NameToLayer("Default"));
-        // if (overlapBox != null)
-        // {
-        //     if (overlapBox.gameObject.CompareTag("Player"))
-        //     {
-        //         Debug.Log("player in cannot drag");
-        //         return true;
-        //     }
-        // }
-        //
-        // return false;
-        //
-        //
-
         if (boxCollider2D.bounds.Contains(PlayerRuntime.Instance.transform.position))
         {
             return true;
@@ -51,6 +38,20 @@ public class DragableObject : LevelObjectRuntime
         }
     }
 
+
+    private void OnMouseOver()
+    {
+        if (boxCollider2D.bounds.Contains(PlayerRuntime.Instance.transform.position))
+        {
+            return;
+        }
+        outlineSpriteRenderer.gameObject.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        outlineSpriteRenderer.gameObject.SetActive(false);
+    }
 
     void OnMouseDown()
     {
