@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class PlayerRuntime : ActorRuntime
 {
+    private static PlayerRuntime _instance;
+    public static PlayerRuntime Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<PlayerRuntime>();
+            }
+            return _instance;
+        }
+    }
+
     private Vector3 _targetPosition;
     private bool _meetTargetPosition;
 
@@ -22,6 +35,10 @@ public class PlayerRuntime : ActorRuntime
                 CameraManager.Instance.MainCamera.
                     ScreenToWorldPoint(Input.mousePosition);
             _meetTargetPosition = false;
+
+            VisualEffectManager.Instance.SpawnVisualEffectAndDestroy(
+                new VisualEffectSpawnData(VisualEffectId.MouseWave, _targetPosition
+                    , Vector3.one));
 
             //Flip(!_walkRight);
         }

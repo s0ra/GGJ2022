@@ -57,7 +57,7 @@ public class GameplayManager : MonoBehaviour
         {
             _gameStateId = _currentGameplayState.GameStateId;
             _currentGameplayState.OnEnter(gameplayStateData);
-            Debug.Log($"_currentGameplayState OnEnter {gameplayStateData.GameStateId}");
+            //Debug.Log($"_currentGameplayState OnEnter {gameplayStateData.GameStateId}");
         }
         else
         {

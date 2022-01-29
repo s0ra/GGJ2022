@@ -9,6 +9,14 @@ public class LoseState : GameplayState
     public override void OnEnter(GameplayStateData gameplayStateData)
     {
         base.OnEnter(gameplayStateData);
+        CameraManager.Instance.ShakeCamera();
+        UIManager.Instance.LoadingScreen.ScaleDownTo(
+            PlayerRuntime.Instance.transform.position, ChangeGameState);
+
+    }
+
+    private void ChangeGameState()
+    {
         GameplayManager.Instance.TryChangeGameState(
             new GameplayStateData()
             {
