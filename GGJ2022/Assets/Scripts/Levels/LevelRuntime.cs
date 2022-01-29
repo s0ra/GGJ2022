@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using System.Linq;
 
 public class LevelRuntime : MonoBehaviour
 {
@@ -34,5 +36,33 @@ public class LevelRuntime : MonoBehaviour
     public void DestroySelf()
     {
         Destroy(gameObject);
+    }
+
+    public void SearchAndLinkAllLevelObjects()
+    {
+        _levelObjectRuntimes = transform
+                .GetComponentsInChildren<LevelObjectRuntime>().ToList();
+    }
+}
+
+[CustomEditor(typeof(LevelRuntime))]
+public class LevelRuntimeEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        /*if (GUILayout.Button("Change Level"))
+        {
+            GameplayManager.Instance.TryChangeGameState(new GameplayStateData() {
+                GameStateId = GameStateId.EnterLevel,
+                LevelId = TestSetting.Instance.LevelId
+            });
+        }*/
+
+        if (GUILayout.Button("Link all LevelObjects"))
+        {
+            LevelRuntime level = (LevelRuntime)target;
+            level.SearchAndLinkAllLevelObjects();
+        }
+        base.OnInspectorGUI();
     }
 }

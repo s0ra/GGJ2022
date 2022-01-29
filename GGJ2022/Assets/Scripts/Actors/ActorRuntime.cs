@@ -26,16 +26,6 @@ public partial class ActorRuntime : LevelObjectRuntime
         _actorAnimator.Init(this);
     }
 
-    private void Update()
-    {
-        UpdateObject();
-    }
-
-    private void FixedUpdate()
-    {
-        FixedUpdateObject();
-    }
-
     public override void UpdateObject()
     {
         base.UpdateObject();
