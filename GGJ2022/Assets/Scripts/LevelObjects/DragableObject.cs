@@ -13,8 +13,6 @@ public class DragableObject : LevelObjectRuntime
     private Vector3 offset;
     [SerializeField] private bool disableDrag = false;
 
-    [SerializeField] private ParticleSystem draggingParticle;
-    private ParticleSystem _currentParticle;
 
     private bool _dragging;
     private bool _hovering;
@@ -87,7 +85,6 @@ public class DragableObject : LevelObjectRuntime
                  Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
         // Show dragging particle
-        _currentParticle = Instantiate(draggingParticle, transform.position, transform.rotation);
     }
 
     void OnMouseDrag()
@@ -104,17 +101,13 @@ public class DragableObject : LevelObjectRuntime
         Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
         transform.position = curPosition;
-        _currentParticle.transform.position = curPosition;
         Snapping();
     }
 
     void OnMouseUp()
     {
         _dragging = false;
-        if (_currentParticle != null)
-        {
-            DestroyImmediate(_currentParticle.gameObject);
-        }
+
         if (disableDrag)
         {
             return;
