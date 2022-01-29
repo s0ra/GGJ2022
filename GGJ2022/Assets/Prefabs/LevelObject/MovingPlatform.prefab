@@ -103,9 +103,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4594008083745762136}
-  - component: {fileID: 4594008083745762138}
   - component: {fileID: 4594008083745762139}
   - component: {fileID: 7791537228301541327}
+  - component: {fileID: 8622687505498683205}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -128,21 +128,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4594008083745762138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4594008083745762137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaa2d098e06397941b71ff90616dae27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxCollider2D: {fileID: 4594008083745762139}
-  spriteRenderer: {fileID: 0}
-  outlineSpriteRenderer: {fileID: 0}
 --- !u!61 &4594008083745762139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,3 +166,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3be005292a244279796ac206b9c977f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8622687505498683205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4594008083745762137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b78817d0ca34f9d91ca81036e787fdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetLeft: 0
+  offsetRight: 0
+  speed: 1
+  hasReachedRight: 0
+  hasReachedLeft: 0
