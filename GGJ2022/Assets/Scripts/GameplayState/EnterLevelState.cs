@@ -8,6 +8,7 @@ public class EnterLevelState : GameplayState
 
     public override void OnEnter(GameplayStateData gameplayStateData)
     {
+        UIManager.Instance.LevelSelectPanel.gameObject.SetActive(false);
         base.OnEnter(gameplayStateData);
         LevelManager.Instance.SpawnLevel(gameplayStateData.LevelId);
         CameraManager.Instance.SetCameraSize(
