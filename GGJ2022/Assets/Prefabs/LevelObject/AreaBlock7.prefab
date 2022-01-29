@@ -138,6 +138,7 @@ MonoBehaviour:
   boxCollider2D: {fileID: 4594008083745762139}
   spriteRenderer: {fileID: 9101780159464452407}
   outlineSpriteRenderer: {fileID: 9198497312471489422}
+  disableDrag: 0
 --- !u!61 &4594008083745762139
 BoxCollider2D:
   m_ObjectHideFlags: 0
