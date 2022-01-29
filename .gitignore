@@ -35,3 +35,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.log
+GGJ2022/UserSettings/EditorUserSettings.asset
