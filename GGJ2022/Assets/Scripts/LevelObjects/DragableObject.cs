@@ -26,7 +26,7 @@ public class DragableObject : LevelObjectRuntime
     {
         Collider2D overlapBox = Physics2D.OverlapBox(
             boxCollider2D.transform.position,
-            boxCollider2D.size, 0, default);
+            boxCollider2D.size, 0, LayerMask.NameToLayer("Default"));
         if (overlapBox != null)
         {
             if (overlapBox.gameObject.CompareTag("Player"))
