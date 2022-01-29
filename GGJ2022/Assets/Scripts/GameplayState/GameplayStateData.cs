@@ -33,4 +33,9 @@ public class GameplayStateData
         }
         return result;
     }
+
+    public GameplayStateData(GameStateId gameStateId)
+    {
+        GameStateId = gameStateId;
+    }
 }

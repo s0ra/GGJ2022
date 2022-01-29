@@ -172,10 +172,10 @@ public class PixelPerfectCollider2D : MonoBehaviour
     {
         Color color = texture.GetPixel(x, y);
         bool higherAlpha = color.a >= AlphaThreshhold;
-        float value = 0.5f;
-        bool lowerr = color.r < value;
-        bool lowerg = color.g < value;
-        bool lowerb = color.b < value;
+        float value = 0f;
+        bool lowerr = color.r <= value;
+        bool lowerg = color.g <= value;
+        bool lowerb = color.b <= value;
         return higherAlpha && lowerr && lowerg && lowerb;
     }
 

@@ -27,6 +27,7 @@ public class ApplicationManager : MonoBehaviour
         VisualEffectManager.Instance.InitManager();
         UIManager.Instance.InitManager();
         InputManager.Instance.InitManager();
+        PixelColliderManager.Instance.InitManager();
     }
 
 

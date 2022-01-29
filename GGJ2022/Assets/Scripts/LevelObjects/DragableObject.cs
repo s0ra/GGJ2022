@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,11 +7,22 @@ using UnityEngine;
 public class DragableObject : MonoBehaviour
 {
 
+    [SerializeField] private BoxCollider2D boxCollider2D;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     private Vector3 screenPoint;
     private Vector3 offset;
 
+
+    private void Start()
+    {
+        boxCollider2D.size = spriteRenderer.size;
+    }
+
+
     void OnMouseDown()
     {
+        GameplayManager.Instance.TryChangeGameState
+            (new GameplayStateData(GameStateId.PauseOnDrag));
         offset = gameObject.transform.position -
          Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
     }
@@ -24,6 +36,8 @@ public class DragableObject : MonoBehaviour
 
     void OnMouseUp()
     {
-           
+        PixelColliderManager.Instance.RegeneratePixelCollider();
+        GameplayManager.Instance.TryChangeGameState
+            (new GameplayStateData(GameStateId.PlayerMove));
     }
 }
