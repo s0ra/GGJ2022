@@ -15,12 +15,10 @@ public class MovingPlaform : LevelObjectRuntime
     {
         base.Init();
         startPosition = transform.position;
-        Debug.Log("init");
     }
 
     public override void FixedUpdateObject()
     {
-        Debug.Log("update");
         base.FixedUpdateObject();
 
         MoveObject();
