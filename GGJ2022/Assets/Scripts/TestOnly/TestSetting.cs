@@ -17,7 +17,7 @@ public class TestSetting : MonoBehaviour
             return _instance;
         }
     }
-    public int LevelId;
+    public GameplayStateData GameplayStateData;
 }
 
 [CustomEditor(typeof(TestSetting))]
@@ -25,12 +25,17 @@ public class TestSettingEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        if (GUILayout.Button("Change Level"))
+        /*if (GUILayout.Button("Change Level"))
         {
             GameplayManager.Instance.TryChangeGameState(new GameplayStateData() {
                 GameStateId = GameStateId.EnterLevel,
                 LevelId = TestSetting.Instance.LevelId
             });
+        }*/
+
+        if (GUILayout.Button("Change GameplayState"))
+        {
+            GameplayManager.Instance.TryChangeGameState(TestSetting.Instance.GameplayStateData);
         }
         base.OnInspectorGUI();
     }

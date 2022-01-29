@@ -32,4 +32,11 @@ public class PixelColliderManager : MonoBehaviour
     {
         pixelPerfectCollider2D.Regenerate();
     }
+
+    public void FitOrthoSizeToRendererCamera()
+    {
+        colliderDetectionCamera.FitOrthoSizeToCamera(CameraManager.Instance.MainCamera);
+    }
+
+
 }

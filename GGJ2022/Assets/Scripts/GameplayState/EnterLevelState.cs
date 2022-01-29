@@ -10,6 +10,8 @@ public class EnterLevelState : GameplayState
     {
         base.OnEnter(gameplayStateData);
         LevelManager.Instance.SpawnLevel(gameplayStateData.LevelId);
+        CameraManager.Instance.SetCameraSize(LevelManager.Instance.CurrentLevelRuntime.CameraSize);
+        PixelColliderManager.Instance.FitOrthoSizeToRendererCamera();
         GameplayManager.Instance.TryChangeGameState(new GameplayStateData() { 
             GameStateId = GameStateId.PlayerMove
         });
