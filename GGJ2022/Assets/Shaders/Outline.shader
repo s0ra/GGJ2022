@@ -135,7 +135,7 @@ Shader "Custom/CelEffectsDottedOutline"
 		Pass
 		{
 			// Won't draw where it sees ref value 4
-			Cull ON
+			Cull OFF
 			ZWrite OFF
 			ZTest ON
 			Stencil
