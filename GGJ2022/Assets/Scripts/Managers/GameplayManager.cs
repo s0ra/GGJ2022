@@ -18,7 +18,7 @@ public class GameplayManager : MonoBehaviour
     }
 
     public GameStateId GameStateId => _currentGameplayState.GameStateId;
-    private GameplayState _currentGameplayState;
+    [SerializeField] private GameplayState _currentGameplayState;
 
     public void InitManager()
     {

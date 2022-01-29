@@ -27,6 +27,11 @@ public class GameplayState
 
     }
 
+    public virtual void FixedUpdateState()
+    {
+
+    }
+
     public virtual void OnExit()
     {
 

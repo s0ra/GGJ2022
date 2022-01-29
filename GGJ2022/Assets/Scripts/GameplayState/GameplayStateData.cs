@@ -7,6 +7,11 @@ public class GameplayStateData
     public GameStateId GameStateId;
     public int LevelId;
 
+    public GameplayStateData()
+    {
+
+    }
+
     public GameplayState ToGameplayState()
     {
         GameplayState result = null;

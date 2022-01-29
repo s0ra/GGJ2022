@@ -9,6 +9,10 @@ public class EnterLevelState : GameplayState
     public override void OnEnter(GameplayStateData gameplayStateData)
     {
         base.OnEnter(gameplayStateData);
+        LevelManager.Instance.SpawnLevel(gameplayStateData.LevelId);
+        GameplayManager.Instance.TryChangeGameState(new GameplayStateData() { 
+            GameStateId = GameStateId.PlayerMove
+        });
     }
 
     public override void UpdateState()

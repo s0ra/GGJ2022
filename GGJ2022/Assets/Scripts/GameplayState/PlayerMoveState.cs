@@ -14,6 +14,14 @@ public class PlayerMoveState : GameplayState
     public override void UpdateState()
     {
         base.UpdateState();
+        LevelManager.Instance.UpdateManager();
+
+    }
+
+    public override void FixedUpdateState()
+    {
+        base.FixedUpdateState();
+        LevelManager.Instance.FixedUpdateManager();
 
     }
 
