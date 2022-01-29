@@ -15,7 +15,9 @@ public class EnterLevelState : GameplayState
         PixelColliderManager.Instance.FitOrthoSizeToRendererCamera();
 
         UIManager.Instance.LoadingScreen.ScaleUpFrom(
-            PlayerRuntime.Instance.transform.position, RegenerateCollider);
+            PlayerRuntime.Instance.transform.position,
+            gameplayStateData.LevelId,
+             RegenerateCollider);
         //ApplicationManager.Instance.StartCoroutine(RegenerateCollider);
     }
 
