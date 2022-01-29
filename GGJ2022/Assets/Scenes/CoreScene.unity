@@ -94,8 +94,9 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -127,11 +128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7997894608561956715, guid: 0fe818db5dee9411b9bb63e0c60c69f5,
-        type: 3}
-      propertyPath: m_Name
-      value: BlackPiece (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 7997894608561956709, guid: 0fe818db5dee9411b9bb63e0c60c69f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -186,6 +182,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997894608561956715, guid: 0fe818db5dee9411b9bb63e0c60c69f5,
+        type: 3}
+      propertyPath: m_Name
+      value: BlackPiece (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fe818db5dee9411b9bb63e0c60c69f5, type: 3}
@@ -417,11 +418,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7997894608561956715, guid: 0fe818db5dee9411b9bb63e0c60c69f5,
-        type: 3}
-      propertyPath: m_Name
-      value: BlackPiece
-      objectReference: {fileID: 0}
     - target: {fileID: 7997894608561956709, guid: 0fe818db5dee9411b9bb63e0c60c69f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -476,6 +472,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997894608561956715, guid: 0fe818db5dee9411b9bb63e0c60c69f5,
+        type: 3}
+      propertyPath: m_Name
+      value: BlackPiece
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fe818db5dee9411b9bb63e0c60c69f5, type: 3}

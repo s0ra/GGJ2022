@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using DG.Tweening;
 
 public class VisualEffectManager : MonoBehaviour
 {
     private static VisualEffectManager _instance;
+
     public static VisualEffectManager Instance
     {
         get
@@ -14,6 +16,7 @@ public class VisualEffectManager : MonoBehaviour
             {
                 _instance = FindObjectOfType<VisualEffectManager>();
             }
+
             return _instance;
         }
     }
@@ -31,8 +34,8 @@ public class VisualEffectManager : MonoBehaviour
         foreach (VisualEffectId visualEffectId in Enum.GetValues(typeof(VisualEffectId)))
         {
             VisualEffectRuntime visualEffectRuntime = Resources.Load<GameObject>(
-                GameConstants.ResourcesPath.VisualEffectPath + visualEffectId)
-                    .GetComponent<VisualEffectRuntime>();
+                    GameConstants.ResourcesPath.VisualEffectPath + visualEffectId)
+                .GetComponent<VisualEffectRuntime>();
             if (visualEffectRuntime == null)
             {
                 Debug.LogError($"Cannot find VisualEffectRuntime{visualEffectId} in resources");
@@ -40,15 +43,12 @@ public class VisualEffectManager : MonoBehaviour
             }
 
             _visualEffectPrefabs.Add(visualEffectId, visualEffectRuntime);
-            ObjectPoolManager.Instance.CacheObject(visualEffectRuntime.gameObject,1, 
-            (go)=> 
-            {
-                go.GetComponent<VisualEffectRuntime>().Init();
-            });
+            ObjectPoolManager.Instance.CacheObject(visualEffectRuntime.gameObject, 1,
+                (go) => { go.GetComponent<VisualEffectRuntime>().Init(); });
         }
     }
 
-    public VisualEffectRuntime SpawnVisualEffect(VisualEffectSpawnData visualEffectSpawnData)
+    public VisualEffectRuntime SpawnVisualEffectAndDestroy(VisualEffectSpawnData visualEffectSpawnData)
     {
         VisualEffectId id = visualEffectSpawnData.VisualEffectId;
         if (!_visualEffectPrefabs.ContainsKey(id))
@@ -56,9 +56,14 @@ public class VisualEffectManager : MonoBehaviour
             Debug.LogError($"_visualEffectPrefabs not contains {id}");
             return null;
         }
+
         VisualEffectRuntime result = ObjectPoolManager.Instance.CreateObject(
             _visualEffectPrefabs[id].gameObject).GetComponent<VisualEffectRuntime>();
         result.OnSpawn(visualEffectSpawnData);
+        ParticleSystem particleSystem = result.GetComponent<ParticleSystem>();
+        DOVirtual.DelayedCall(particleSystem.main.duration + 
+                              particleSystem.main.startLifetime.constantMax,
+            () => { ObjectPoolManager.Instance.DestroyObject(result.gameObject); }, false);
         return result;
     }
 }
