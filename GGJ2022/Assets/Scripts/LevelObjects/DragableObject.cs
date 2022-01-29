@@ -22,6 +22,8 @@ public class DragableObject : LevelObjectRuntime
         outlineSpriteRenderer.size = spriteRenderer.size;
         _dragging = false;
         outlineSpriteRenderer.gameObject.SetActive(false);
+        outlineSpriteRenderer.gameObject.GetComponentInChildren<SpriteRenderer>().size =
+            spriteRenderer.size;
     }
 
     private bool CheckPlayerInside()
