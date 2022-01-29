@@ -30,7 +30,7 @@ public class DragableObject : LevelObjectRuntime
 
     private bool CheckPlayerInside()
     {
-        if (boxCollider2D.bounds.Contains(ActorRuntime.Instance.transform.position))
+        if (boxCollider2D.bounds.Contains(PlayerRuntime.Instance.transform.position))
         {
             return true;
         }
@@ -43,7 +43,7 @@ public class DragableObject : LevelObjectRuntime
 
     private void OnMouseOver()
     {
-        if (boxCollider2D.bounds.Contains(ActorRuntime.Instance.transform.position))
+        if (boxCollider2D.bounds.Contains(PlayerRuntime.Instance.transform.position))
         {
             return;
         }

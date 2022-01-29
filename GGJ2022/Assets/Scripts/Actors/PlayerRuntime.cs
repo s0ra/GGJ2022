@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class PlayerRuntime : ActorRuntime
 {
+    private static PlayerRuntime _instance;
+    public static PlayerRuntime Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<PlayerRuntime>();
+            }
+            return _instance;
+        }
+    }
+
     private Vector3 _targetPosition;
     private bool _meetTargetPosition;
 

@@ -18,11 +18,14 @@ public class UIManager : MonoBehaviour
     }
 
     public LevelSelectPanel LevelSelectPanel;
+    public LoadingScreen LoadingScreen;
 
     public void InitManager()
     {
         LevelSelectPanel.Init();
+        LoadingScreen.Init();
     }
+
 
 
 }

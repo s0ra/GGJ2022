@@ -11,4 +11,9 @@ public static class GameConstants
         public const string LevelsPath = "Prefabs/Levels/Level";
 
     }
+
+    public static class Gameplay
+    {
+        public const int MAX_LEVEL_COUNT = 10;
+    }
 }

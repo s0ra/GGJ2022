@@ -30,7 +30,7 @@ public class ApplicationManager : MonoBehaviour
         PixelColliderManager.Instance.InitManager();
         CameraManager.Instance.Init();
 
-        // UIManager.Instance.LevelSelectPanel.TryShowPanel();
+        //UIManager.Instance.LevelSelectPanel.TryShowPanel();
     }
 
     public void StartCoroutine(Action onComplete)
