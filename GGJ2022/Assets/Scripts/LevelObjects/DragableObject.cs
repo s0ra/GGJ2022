@@ -13,30 +13,42 @@ public class DragableObject : LevelObjectRuntime
     private Vector3 offset;
     [SerializeField] private bool disableDrag = false;
 
+
+    private bool _dragging;
     
-
-
     public override void Init()
     {
         boxCollider2D.size = spriteRenderer.size;
         outlineSpriteRenderer.size = spriteRenderer.size;
+        _dragging = false;
     }
 
     private bool CheckPlayerInside()
     {
-        Collider2D overlapBox = Physics2D.OverlapBox(
-            boxCollider2D.transform.position,
-            boxCollider2D.size, 0, default);
-        if (overlapBox != null)
-        {
-            if (overlapBox.gameObject.CompareTag("Player"))
-            {
-                Debug.Log("player in cannot drag");
-                return true;
-            }
-        }
+        // Collider2D overlapBox = Physics2D.OverlapBox(
+        //     boxCollider2D.transform.position,
+        //     boxCollider2D.size, 0, LayerMask.NameToLayer("Default"));
+        // if (overlapBox != null)
+        // {
+        //     if (overlapBox.gameObject.CompareTag("Player"))
+        //     {
+        //         Debug.Log("player in cannot drag");
+        //         return true;
+        //     }
+        // }
+        //
+        // return false;
+        //
+        //
 
-        return false;
+        if (boxCollider2D.bounds.Contains(ActorRuntime.Instance.transform.position))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 
@@ -47,10 +59,14 @@ public class DragableObject : LevelObjectRuntime
             Debug.Log("disable drag " + gameObject.name);
             return;
         }
+
+        Debug.Log("player inside " + CheckPlayerInside());
         if (CheckPlayerInside())
         {
             return;
         }
+
+        _dragging = true;
         GameplayManager.Instance.TryChangeGameState
             (new GameplayStateData(GameStateId.PauseOnDrag));
         offset = gameObject.transform.position -
@@ -63,11 +79,11 @@ public class DragableObject : LevelObjectRuntime
         {
             return;
         }
-
-        if (CheckPlayerInside())
+        if (!_dragging && CheckPlayerInside())
         {
             return;
         }
+
 
         Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
@@ -77,16 +93,12 @@ public class DragableObject : LevelObjectRuntime
 
     void OnMouseUp()
     {
+        _dragging = false;
         if (disableDrag)
         {
             return;
         }
-
-        if (CheckPlayerInside())
-        {
-            return;
-        }
-
+        
         PixelColliderManager.Instance.RegeneratePixelCollider();
         GameplayManager.Instance.TryChangeGameState
             (new GameplayStateData(GameStateId.PlayerMove));

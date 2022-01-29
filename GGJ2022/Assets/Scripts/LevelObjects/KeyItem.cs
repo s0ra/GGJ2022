@@ -43,25 +43,25 @@ public class KeyItem : LevelObjectRuntime
         if (_player.HasKey)
         {
             // fly around player
-            Vector3 newPos =  Vector3.Lerp(transform.position, _player.transform.position, Time.deltaTime * 100);
-            if (!hasReachedUp)
-            {
-                newPos.y += floatingSpeed;
-                if (newPos.y >= _player.transform.position.y + offsetUp)
-                {
-                    hasReachedUp = true;
-                    hasReachedDown = false;
-                }
-            }
-            else if (!hasReachedDown)
-            {
-                newPos.y -= floatingSpeed;
-                if (newPos.y <= _player.transform.position.y + offsetDown)
-                {
-                    hasReachedUp = false;
-                    hasReachedDown = true;
-                }
-            }
+            Vector3 newPos =  Vector3.Lerp(transform.position, _player.transform.position, Time.deltaTime * 3);
+            // if (!hasReachedUp)
+            // {
+            //     newPos.y += floatingSpeed;
+            //     if (newPos.y >= _player.transform.position.y + offsetUp)
+            //     {
+            //         hasReachedUp = true;
+            //         hasReachedDown = false;
+            //     }
+            // }
+            // else if (!hasReachedDown)
+            // {
+            //     newPos.y -= floatingSpeed;
+            //     if (newPos.y <= _player.transform.position.y + offsetDown)
+            //     {
+            //         hasReachedUp = false;
+            //         hasReachedDown = true;
+            //     }
+            // }
 
             transform.position = newPos;
         }
