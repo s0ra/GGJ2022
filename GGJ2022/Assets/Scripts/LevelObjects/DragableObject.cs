@@ -13,8 +13,6 @@ public class DragableObject : LevelObjectRuntime
     private Vector3 offset;
     [SerializeField] private bool disableDrag = false;
 
-    
-
 
     public override void Init()
     {
@@ -24,19 +22,30 @@ public class DragableObject : LevelObjectRuntime
 
     private bool CheckPlayerInside()
     {
-        Collider2D overlapBox = Physics2D.OverlapBox(
-            boxCollider2D.transform.position,
-            boxCollider2D.size, 0, LayerMask.NameToLayer("Default"));
-        if (overlapBox != null)
-        {
-            if (overlapBox.gameObject.CompareTag("Player"))
-            {
-                Debug.Log("player in cannot drag");
-                return true;
-            }
-        }
+        // Collider2D overlapBox = Physics2D.OverlapBox(
+        //     boxCollider2D.transform.position,
+        //     boxCollider2D.size, 0, LayerMask.NameToLayer("Default"));
+        // if (overlapBox != null)
+        // {
+        //     if (overlapBox.gameObject.CompareTag("Player"))
+        //     {
+        //         Debug.Log("player in cannot drag");
+        //         return true;
+        //     }
+        // }
+        //
+        // return false;
+        //
+        //
 
-        return false;
+        if (boxCollider2D.bounds.Contains(ActorRuntime.Instance.transform.position))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 
@@ -47,10 +56,13 @@ public class DragableObject : LevelObjectRuntime
             Debug.Log("disable drag " + gameObject.name);
             return;
         }
+
+        Debug.Log("player inside " + CheckPlayerInside());
         if (CheckPlayerInside())
         {
             return;
         }
+
         GameplayManager.Instance.TryChangeGameState
             (new GameplayStateData(GameStateId.PauseOnDrag));
         offset = gameObject.transform.position -

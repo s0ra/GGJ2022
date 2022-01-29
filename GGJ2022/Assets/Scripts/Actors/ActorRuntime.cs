@@ -22,6 +22,19 @@ public partial class ActorRuntime : LevelObjectRuntime
     public ParticleSystem landingEffect;
 
     protected bool _onGround;
+    
+    private static ActorRuntime _instance;
+    public static ActorRuntime Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<ActorRuntime>();
+            }
+            return _instance;
+        }
+    }
 
     public override void Init()
     {
