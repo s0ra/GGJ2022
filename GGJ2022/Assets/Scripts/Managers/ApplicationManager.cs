@@ -31,14 +31,15 @@ public class ApplicationManager : MonoBehaviour
         CameraManager.Instance.Init();
     }
 
-    public void StartCoroutine(float seconds, Action onComplete )
+    public void StartCoroutine(Action onComplete)
     {
-        StartCoroutine(StartCorou(seconds, onComplete));
+        StartCoroutine(StartCorou(onComplete));
     }
 
-    private IEnumerator StartCorou(float seconds, Action onComplete)
+    private IEnumerator StartCorou(Action onComplete)
     {
-        yield return new WaitForSeconds(seconds);
+        //yield return new WaitForSeconds(seconds);
+        yield return new WaitForEndOfFrame();
         onComplete?.Invoke();
         yield return null;
     }
