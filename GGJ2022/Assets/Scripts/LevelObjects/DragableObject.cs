@@ -34,6 +34,7 @@ public class DragableObject : LevelObjectRuntime
         Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
         transform.position = curPosition;
+        Snapping();
     }
 
     void OnMouseUp()
@@ -41,5 +42,16 @@ public class DragableObject : LevelObjectRuntime
         PixelColliderManager.Instance.RegeneratePixelCollider();
         GameplayManager.Instance.TryChangeGameState
             (new GameplayStateData(GameStateId.PlayerMove));
+    }
+    
+    private void Snapping()
+    {
+        Vector2 snappedPos = new Vector2((float)Math.Round(transform.position.x * 2, MidpointRounding.AwayFromZero) / 2,
+            (float)Math.Round(transform.position.y * 2, MidpointRounding.AwayFromZero) / 2);
+        
+        transform.position = snappedPos;
+        Vector2 snappedScale = new Vector2((float)Math.Round(transform.localScale.x),
+            (float)Math.Round(transform.localScale.y));
+        transform.localScale = snappedScale;
     }
 }
