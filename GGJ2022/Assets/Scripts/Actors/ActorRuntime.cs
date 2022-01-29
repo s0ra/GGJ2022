@@ -4,7 +4,7 @@ using UnityEngine;
 
 public partial class ActorRuntime : LevelObjectRuntime
 {
-    [SerializeField] private ActorData _actorData;
+    [SerializeField] protected ActorData _actorData;
     [SerializeField] protected ActorAnimator _actorAnimator;
 
     [SerializeField] private Rigidbody2D _rigidbody2D;
@@ -72,6 +72,12 @@ public partial class ActorRuntime : LevelObjectRuntime
 
         float ySpeed = _rigidbody2D.velocity.y;
         _rigidbody2D.velocity = new Vector2(xSpeed, ySpeed);
+    }
+
+    protected virtual void StopMoving()
+    {
+        float ySpeed = _rigidbody2D.velocity.y;
+        _rigidbody2D.velocity = new Vector2(0, ySpeed);
     }
 
     protected bool CheckAnyOverlapCollider(BoxCollider2D boxCollider2D)

@@ -4,12 +4,47 @@ using UnityEngine;
 
 public class PlayerRuntime : ActorRuntime
 {
+    private Vector3 _targetPosition;
+    private bool _meetTargetPosition;
+
+    public override void Init()
+    {
+        base.Init();
+        _meetTargetPosition = true;
+    }
+
     public override void UpdateObject()
     {
         base.UpdateObject();
         if (Input.GetMouseButtonUp(1))
         {
-            Flip(!_walkRight);
+            _targetPosition =
+                CameraManager.Instance.MainCamera.
+                    ScreenToWorldPoint(Input.mousePosition);
+            _meetTargetPosition = false;
+
+            //Flip(!_walkRight);
+        }
+    }
+
+    private void CheckMeetTarget()
+    {
+        if (!_meetTargetPosition)
+        {
+            float distance = Mathf.Abs(
+                _targetPosition.x - transform.position.x);
+            if (distance <= Time.fixedDeltaTime * _actorData.MoveSpeed)
+            {
+                _meetTargetPosition = true;
+            }
+        }
+    }
+
+    private void CheckDirection()
+    {
+        if (!_meetTargetPosition)
+        {
+            _walkRight = _targetPosition.x > transform.position.x;
         }
     }
 
@@ -30,6 +65,15 @@ public class PlayerRuntime : ActorRuntime
             }
         }*/
 
-        TryWalk();
+        CheckDirection();
+        if (!_meetTargetPosition)
+        {
+            TryWalk();
+        }
+        else
+        {
+            StopMoving();
+        }
+        CheckMeetTarget();
     }
 }
