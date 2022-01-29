@@ -20,12 +20,12 @@ public class DragableObject : LevelObjectRuntime
     public override void Init()
     {
         boxCollider2D.size = spriteRenderer.size;
-        outlineSpriteRenderer.size = spriteRenderer.size;
+        outlineSpriteRenderer.size = spriteRenderer.size + Vector2.one * 0.5f;
         _dragging = false;
         _hovering = false;
         outlineSpriteRenderer.gameObject.SetActive(false);
         outlineSpriteRenderer.gameObject.GetComponentInChildren<SpriteRenderer>().size =
-            spriteRenderer.size;
+            spriteRenderer.size + Vector2.one * 0.5f;
     }
 
     private bool CheckPlayerInside()
