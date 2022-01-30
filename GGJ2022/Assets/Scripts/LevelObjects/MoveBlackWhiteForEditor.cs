@@ -25,7 +25,7 @@ public class MoveBlackWhiteForEditor : MonoBehaviour
         {
             return;
         }
-
+        
         if (Selection.activeTransform.gameObject == gameObject)
         {
             Snapping();
