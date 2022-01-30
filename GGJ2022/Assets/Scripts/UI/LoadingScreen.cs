@@ -98,7 +98,7 @@ public class LoadingScreen : MonoBehaviour
     }
 
 }
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(LoadingScreen))]
 public class LoadingScreenEditor : Editor
 {
@@ -118,3 +118,4 @@ public class LoadingScreenEditor : Editor
         base.OnInspectorGUI();
     }
 }
+#endif
