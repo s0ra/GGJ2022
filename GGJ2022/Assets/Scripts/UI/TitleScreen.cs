@@ -10,6 +10,12 @@ public class TitleScreen : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private CanvasGroup canvasGroup;
 
+    [SerializeField] private Transform blackMask;
+    [SerializeField] private Transform blackImage;
+
+    [SerializeField] private Transform whiteMask;
+    [SerializeField] private Transform whiteImage;
+
     private bool _clicked = false;
 
     public void Init()
@@ -22,6 +28,18 @@ public class TitleScreen : MonoBehaviour
         startText2.DOFade(0.25f,1f)
             .SetLoops(-1, LoopType.Yoyo)
                 .SetEase(Ease.InOutSine);
+        blackMask.DOLocalRotate(new Vector3(0, 0, 360), 5
+            ,RotateMode.FastBeyond360)
+            .SetLoops(-1).SetEase(Ease.Linear).OnUpdate(() => {
+                blackImage.transform.rotation = Quaternion.identity;
+            });
+
+        whiteMask.DOLocalRotate(new Vector3(0, 0, 360), 5
+            , RotateMode.FastBeyond360)
+            .SetLoops(-1).SetEase(Ease.Linear).OnUpdate(() => {
+                whiteImage.transform.rotation = Quaternion.identity;
+            });
+
         _clicked = false;
     }
 
