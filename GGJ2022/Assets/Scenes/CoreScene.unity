@@ -94,8 +94,9 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -127,10 +128,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6176865586407837627, guid: 41ba7ec5d35b0491d92a8a88bba83b41,
+    - target: {fileID: 339342784265701475, guid: 41ba7ec5d35b0491d92a8a88bba83b41,
         type: 3}
-      propertyPath: m_Name
-      value: Managers
+      propertyPath: m_InputActionsPerSecond
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6176865586407837624, guid: 41ba7ec5d35b0491d92a8a88bba83b41,
         type: 3}
@@ -186,6 +187,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176865586407837627, guid: 41ba7ec5d35b0491d92a8a88bba83b41,
+        type: 3}
+      propertyPath: m_Name
+      value: Managers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41ba7ec5d35b0491d92a8a88bba83b41, type: 3}
