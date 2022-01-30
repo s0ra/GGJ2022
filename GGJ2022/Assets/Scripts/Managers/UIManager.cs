@@ -20,12 +20,14 @@ public class UIManager : MonoBehaviour
 
     public LevelSelectPanel LevelSelectPanel;
     public LoadingScreen LoadingScreen;
+    public TitleScreen TitleScreen;
     public Button RetryButton;
 
     public void InitManager()
     {
         LevelSelectPanel.Init();
         LoadingScreen.Init();
+        TitleScreen.Init();
         SetRetryButtonActive(false);
         RetryButton.onClick.AddListener(() => {
             GameplayManager.Instance.TryChangeGameState(new GameplayStateData() {

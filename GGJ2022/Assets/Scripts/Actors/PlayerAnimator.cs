@@ -20,6 +20,7 @@ public class PlayerAnimator : ActorAnimator
         UpdateEyeWhitePosition(
                 (_actorRuntime.WalkRight ? 1 : -1) * whiteOffsetX);
         LookAtMouse();
+        _animator.SetFloat("moveSpeed", _actorRuntime.Velocity.magnitude);
     }
 
     private void LookAtMouse()

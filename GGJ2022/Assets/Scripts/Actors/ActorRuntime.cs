@@ -17,6 +17,8 @@ public partial class ActorRuntime : LevelObjectRuntime
 
     [SerializeField] protected bool _walkRight;
     public bool WalkRight => _walkRight;
+    public Vector3 Velocity => _rigidbody2D.velocity;
+
     public bool HasKey;
     public KeyItem KeyItem;
 
