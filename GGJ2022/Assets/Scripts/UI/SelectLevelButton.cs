@@ -9,12 +9,20 @@ public class SelectLevelButton : MonoBehaviour
     private int _levelId;
     public void Init(int levelId)
     {
-        //Debug.Log($"SelectLevelButton Init {levelId}");
         _button.onClick.RemoveAllListeners();
         _button.onClick.AddListener(OnClick);
         _text.text = levelId.ToString();
         _levelId = levelId;
-        _button.interactable = true;
+        //Debug.Log($"SelectLevelButton Init {levelId}");
+        if (levelId <= GameConstants.Gameplay.MAX_LEVEL_COUNT)
+        {
+
+            _button.interactable = true;
+        }
+        else
+        {
+            _button.interactable = false;
+        }
     }
 
     private void OnClick()

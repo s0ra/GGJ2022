@@ -14,6 +14,6 @@ public static class GameConstants
 
     public static class Gameplay
     {
-        public const int MAX_LEVEL_COUNT = 10;
+        public const int MAX_LEVEL_COUNT = 7;
     }
 }
