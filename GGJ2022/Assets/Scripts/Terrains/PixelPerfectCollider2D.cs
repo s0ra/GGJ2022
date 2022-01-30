@@ -245,6 +245,7 @@ public class PixelPerfectCollider2D : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 //This class gives unity custom instructions for how to show our component and adds the regenerate button to the inspector.
 [CustomEditor(typeof(PixelPerfectCollider2D))]
 public class PixelColider2DEditor : Editor
@@ -259,3 +260,4 @@ public class PixelColider2DEditor : Editor
         base.OnInspectorGUI();
     }
 }
+#endif

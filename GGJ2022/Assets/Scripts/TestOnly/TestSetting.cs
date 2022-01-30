@@ -20,6 +20,7 @@ public class TestSetting : MonoBehaviour
     public GameplayStateData GameplayStateData;
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(TestSetting))]
 public class TestSettingEditor : Editor
 {
@@ -40,3 +41,4 @@ public class TestSettingEditor : Editor
         base.OnInspectorGUI();
     }
 }
+#endif

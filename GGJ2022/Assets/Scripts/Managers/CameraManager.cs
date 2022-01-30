@@ -41,7 +41,7 @@ public class CameraManager : MonoBehaviour
     }
 
 }
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(CameraManager))]
 public class CameraManagerEditor : Editor
 {
@@ -63,3 +63,4 @@ public class CameraManagerEditor : Editor
         base.OnInspectorGUI();
     }
 }
+#endif

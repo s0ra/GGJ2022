@@ -54,6 +54,7 @@ public class LevelRuntime : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(LevelRuntime))]
 public class LevelRuntimeEditor : Editor
 {
@@ -75,3 +76,4 @@ public class LevelRuntimeEditor : Editor
         base.OnInspectorGUI();
     }
 }
+#endif
