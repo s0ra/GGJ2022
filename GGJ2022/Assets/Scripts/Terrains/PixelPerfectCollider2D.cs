@@ -260,4 +260,4 @@ public class PixelColider2DEditor : Editor
         base.OnInspectorGUI();
     }
 }
-#if UNITY_EDITOR
+#endif
